@@ -21,12 +21,14 @@ view.addLayer(layer);
 
 // http://www.itowns-project.org/itowns/docs/#api/View/View
 view.addFrameRequester(itowns.MAIN_LOOP_EVENTS.AFTER_CAMERA_UPDATE, () => {
-	console.log('after update camera');
+	const coordinates = view.controls.getLookAtCoordinate();
+	console.log(coordinates.longitude, coordinates.latitude);
 });
 
 
 // http://www.itowns-project.org/itowns/docs/#api/Controls/GlobeControls
 view.controls.addEventListener(itowns.CONTROL_EVENTS.CAMERA_TARGET_CHANGED, () => {
-	console.log('CAMERA_TARGET_CHANGED');
+	const coordinates = view.controls.getLookAtCoordinate();
+	console.log('Final', coordinates.longitude, coordinates.latitude);
 });
 
