@@ -1,5 +1,5 @@
 {
-  "name": "formation_itowns",
+  "name": "blank_itowns",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,12 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "itowns": "^2.17.0",
-    "three": "^0.112.1"
+    "itowns": "^2.26.0",
+    "proj4": "^2.6.2",
+    "three": "0.121.1"
   }
 }
