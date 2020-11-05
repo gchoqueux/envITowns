@@ -1,4 +1,5 @@
-import { itowns, pathLayers } from './config';
+import * as itowns from 'itowns';
+import { pathLayers } from './config';
 
 // Define initial camera position
 const placement = {
@@ -14,6 +15,7 @@ const view = new itowns.GlobeView(viewerDiv, placement, {  renderer: { isWebGL2:
 
 view.controls.minDistanceCollision = 50;
 view.controls.minDistance = 150;
+view.controls.dampingMoveFactor = 0.9;
 
 let orthoLayer;
 let adminLayer;

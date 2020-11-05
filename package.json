@@ -12,11 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "exports-loader": "^1.1.1",
+    "itowns": "./itowns_build/itowns-2.26.0.tgz",
+    "jquery": "3.5.0",
+    "proj4": "^2.6.2",
+    "three": "0.121.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.11.0",
     "dat.gui": "^0.7.7"
   }
 }

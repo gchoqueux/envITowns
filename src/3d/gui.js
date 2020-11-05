@@ -96,6 +96,8 @@ export const gui = {
                 const points = layer.children[0];
                 points.material.size = value;
             });
+
+            datGui.add(Potree, 'pointBudget', Potree.pointBudget * 0.005, Potree.pointBudget * 3).name('Détail');
         }
     }
 }
