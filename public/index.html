@@ -5,11 +5,24 @@
 	    height: 100%;
 	    width: 100%;
 	}
-	#viewerDiv {
-    	height: 100%;
-    	margin: 0px;
-    	padding: 0;
-	}
 </style>
-<div id="viewerDiv"></div>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<div class="container-fluid" id="container-map">
+    <div id="viewerDiv"></div>
+    <div class="top-buttons">
+        <button type="button" id="help" class="itowns-control" title="Aide">?</button>
+    </div>
+    <div class="down-buttons">
+        <button type="button" id="zoom-in" class="itowns-control zoom-button" title="Zoomer"></button>
+        <button type="button" id="zoom-out" class="itowns-control zoom-button" title="Dézoomer"></button>
+        <button type="button" id="place" class="itowns-control zoom-button" title="centrer"></button>
+    </div>
+    <div id="help-content">
+        <p><strong>Le navigateur CHROME est conseillé pour la 3D</strong></p>
+        <p><strong>Clic + mouvement souris : </strong>Déplacer la vue</p>
+        <p><strong>Ctrl + clic + mouvement souris : </strong>Orienter la vue</p>
+        <p><strong>Molette souris : </strong>Zoomer</p>
+        <p><strong>Déplacement ligne rouge : </strong>Définir la zone de comparaison</p>
+    </div>
+</div>
 <script src="bundle.js"></script>

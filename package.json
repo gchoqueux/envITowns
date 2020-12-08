@@ -4,20 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server -d --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "proj4": "^2.6.3",
+    "three": "0.123.0"
+  },
   "devDependencies": {
+    "dat.gui": "^0.7.7",
+    "exports-loader": "^1.1.1",
+    "itowns": "./itowns_build/itowns-2.28.1.tgz",
+    "jquery": "3.5.0",
+    "proj4": "^2.6.3",
+    "three": "0.123.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  },
-  "dependencies": {
-    "itowns": "^2.26.0",
-    "proj4": "^2.6.2",
-    "three": "0.121.1"
   }
 }
