@@ -11,15 +11,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "proj4": "^2.6.3",
+    "three": "0.122.0"
+  },
   "devDependencies": {
+    "dat.gui": "^0.7.7",
     "exports-loader": "^1.1.1",
-    "itowns": "./itowns_build/itowns-2.26.0.tgz",
+    "itowns": "./itowns_build/itowns-2.27.0.tgz",
     "jquery": "3.5.0",
-    "proj4": "^2.6.2",
-    "three": "0.121.1",
+    "proj4": "^2.6.3",
+    "three": "0.122.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "dat.gui": "^0.7.7"
+    "webpack-dev-server": "^3.11.0"
   }
 }
