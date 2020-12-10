@@ -15,6 +15,6 @@ export const pathCloud_Context = '../Cloud/STFalaise/ept_Context/ept.json';
 export const pathTargets = '../Cloud/STFalaise/cibles.geojson';
 export const Potree = _Potree;
 
-export const heightGeoid = 55;
+export const heightGeoid = 50;
 export const deltaPivotLocal = new THREE.Vector2(100, 100);
 export const p1_2154 = new Coordinates('EPSG:2154', 385984.6349, 6219242.2964, 0);

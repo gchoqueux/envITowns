@@ -13,7 +13,7 @@ const placement = {
 const viewerDiv = document.getElementById('viewerDiv');
 const view = new itowns.GlobeView(viewerDiv, placement, {  renderer: { isWebGL2: false } });
 
-view.controls.minDistanceCollision = 50;
+view.controls.minDistanceCollision = 10;
 view.controls.minDistance = 50;
 view.controls.dampingMoveFactor = 0.9;
 
@@ -38,7 +38,8 @@ function addElevationLayerFromConfig(config) {
 }
 
 itowns.Fetcher.json(pathLayers + 'WORLD_DTM.json').then(addElevationLayerFromConfig);
-itowns.Fetcher.json(pathLayers + 'IGN_MNT_HIGHRES.json').then(addElevationLayerFromConfig);
+// itowns.Fetcher.json(pathLayers + 'IGN_MNT_HIGHRES.json').then(addElevationLayerFromConfig);
+itowns.Fetcher.json(pathLayers + 'mns.json').then(addElevationLayerFromConfig);
 
 export const callBacks = {
     zoomIn: () => {

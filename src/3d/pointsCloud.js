@@ -14,13 +14,14 @@ const pointclouds = [];
 const p1_4326 = p1_2154.as('EPSG:4326');
 const pivotTHREE = new THREE.Object3D();
 
-
 const pointcloudMaterial = new itowns.PointsMaterial();
 
 pointcloudMaterial.clipBoxes = [];
 pointcloudMaterial.mode = 4;
 pointcloudMaterial.uniforms.octreeSize = { value: 0 };
 pointcloudMaterial.size = 3;
+// pointcloudMaterial.depthWrite = false;
+// pointcloudMaterial.depthTest = false;
 
 export const addPointCloud = (view, urls) => {
     const geocentricPosition = p1_4326.as(view.referenceCrs);
