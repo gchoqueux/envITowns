@@ -35,16 +35,14 @@ export const gui = {
 
             const { layer, updateGroundVisibility } = inter;
 
-            view.tileLayer.display = true;
-
             datGui.add(view.tileLayer, 'display').name('Sol').onChange((value) => {
                 updateGroundVisibility(value);
             });
 
             layer.pointSize = 4;
-            datGui.add(layer, 'visible').name('Point Lidar'); //.onChange(update);
+            datGui.add(layer, 'visible').name('Point Lidar');
 
-            datGui.add(layer, 'pointSize', 0, 5).name('Taille des points').onChange(value => {
+            datGui.add(layer, 'pointSize', 0, 10).name('Taille des points').onChange(value => {
                 const points = layer.children[0];
                 points.material.size = value;
             });

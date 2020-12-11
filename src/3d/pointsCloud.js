@@ -13,6 +13,7 @@ p1_2154.y -= deltaPivotLocal.y;
 const pointclouds = [];
 const p1_4326 = p1_2154.as('EPSG:4326');
 const pivotTHREE = new THREE.Object3D();
+const pivotLocal = new THREE.Object3D();
 
 const pointcloudMaterial = new itowns.PointsMaterial();
 
@@ -20,30 +21,36 @@ pointcloudMaterial.clipBoxes = [];
 pointcloudMaterial.mode = 4;
 pointcloudMaterial.uniforms.octreeSize = { value: 0 };
 pointcloudMaterial.size = 3;
-// pointcloudMaterial.depthWrite = false;
-// pointcloudMaterial.depthTest = false;
 
 export const addPointCloud = (view, urls) => {
     const geocentricPosition = p1_4326.as(view.referenceCrs);
-    pivotTHREE.position.copy(geocentricPosition);
-    pivotTHREE.lookAt(p1_4326.geodesicNormal.add(geocentricPosition));
-    pivotTHREE.updateMatrixWorld(true);
-    view.scene.add(pivotTHREE);
 
     // convergence of meridians
-    const a = itowns.OrientationUtils.quaternionFromCRSToCRS('EPSG:2154', 'EPSG:4326', p1_4326);
+    const converMer = itowns.OrientationUtils.quaternionFromCRSToCRS('EPSG:2154', 'EPSG:4326', p1_4326);
+
+    pivotTHREE.position.copy(geocentricPosition);
+    pivotTHREE.lookAt(p1_4326.geodesicNormal.add(geocentricPosition));
+
+    pivotLocal.position.z -= heightGeoid;
+    pivotLocal.quaternion.copy(converMer);
+
+    pivotTHREE.add(pivotLocal);
+    pivotTHREE.updateMatrixWorld(true);
+
+    view.scene.add(pivotTHREE);
+
 
 	view.scene.add(points);
 	const camera = view.camera.camera3D;
 
-    view.addFrameRequester(itowns.MAIN_LOOP_EVENTS.BEFORE_RENDER, (a) => {
+    view.addFrameRequester(itowns.MAIN_LOOP_EVENTS.BEFORE_RENDER, () => {
         const renderer = view.mainLoop.gfxEngine.renderer;
         const octree = Potree.updatePointClouds(pointclouds, camera, renderer);
 
         points.children = [];
 
         if (octree.visibleNodes.length) {
-            const sceneNodes = octree.visibleNodes.map(a => a.sceneNode)
+            const sceneNodes = octree.visibleNodes.map(n => n.sceneNode)
             points.add(...sceneNodes);
         }
         view.notifyChange(camera, true);
@@ -54,10 +61,8 @@ export const addPointCloud = (view, urls) => {
     	    const pointcloud = data.pointcloud;
             pointclouds.push(pointcloud);
 
-            pivotTHREE.add(pointcloud);
-            pointcloud.position.z -= heightGeoid;
-            pointcloud.quaternion.copy(a);
-            pivotTHREE.updateMatrixWorld(true);
+            pivotLocal.add(pointcloud);
+            pivotLocal.updateMatrixWorld(true);
 
             pointcloud.material = pointcloudMaterial;
         });
@@ -67,6 +72,7 @@ export const addPointCloud = (view, urls) => {
     const far = camera.far;
 
     return {
+        pivotLocal,
     	layer: points,
     	updateGroundVisibility: (value) => {
             if (value) {

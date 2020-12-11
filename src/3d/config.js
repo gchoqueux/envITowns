@@ -10,9 +10,11 @@ global.LASFile = LASFile;
 global.LASDecoder = LASDecoder;
 
 export const pathLayers = './layers/';
-export const pathCloud_Falaise = '../Cloud/STFalaise/ept_Falaise/ept.json';
-export const pathCloud_Context = '../Cloud/STFalaise/ept_Context/ept.json';
-export const pathTargets = '../Cloud/STFalaise/cibles.geojson';
+const rootPath = '../Cloud/STFalaise/';
+export const pathCloud_Falaise = '../Cloud/STFalaise/ept_Falaise_v2/ept.json';
+export const pathCloud_Context = rootPath + 'ept_Context/ept.json';
+export const pathTargets = rootPath + 'cibles_local_v2.geojson';
+export const pathTargetsLabel = rootPath + 'cibles_v2.geojson';
 export const Potree = _Potree;
 
 export const heightGeoid = 50;
