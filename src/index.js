@@ -1,4 +1,6 @@
 import * as itowns from 'itowns';
+import * as potree from 'potree';
+console.log('potree', potree);
 
 const placement = {
     coord: new itowns.Coordinates('EPSG:4326', 2.42, 48.83),
