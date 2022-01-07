@@ -10,7 +10,7 @@ const view = new itowns.GlobeView(viewerDiv, placement);
 const layer = new itowns.ColorLayer('mon calque', {
     source: new itowns.WMTSSource({
         url: 'https://wxs.ign.fr/3ht7xcw6f7nciopo16etuqp2/geoportail/wmts',
-        projection: 'EPSG:3857',
+        crs: 'EPSG:3857',
         name: 'ORTHOIMAGERY.ORTHOPHOTOS',
         tileMatrixSet: 'PM',
         format: 'image/jpeg',
